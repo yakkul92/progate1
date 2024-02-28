@@ -10,7 +10,15 @@ public class Person {
         }
         System.out.println("g’·‚Í" + height + "m‚Å‚·");
         System.out.println("‘Ìd‚Í" + weight + "kg‚Å‚·");
-        System.out.println("BMI‚Í" + Math.round(bmi(weight, height)) + "‚Å‚·");
+
+        double bmi = bmi(weight, height);
+        System.out.println("BMI‚Í" + Math.round(bmi) + "‚Å‚·");
+
+        if (isHealthy(bmi) == true) {
+            system.out.println("Œ’N‚Å‚·");
+        }else{
+            System.out.println("Œ’N‚Å‚Í‚ ‚è‚Ü‚¹‚ñ");
+        }
     }
 
     public static String fullName(String firstName, String lastName){
@@ -19,5 +27,9 @@ public class Person {
 
     public static double bmi(double weight, double height){
         return weight / height / height;
+    }
+
+    public static boolean isHealthy(double bmi){
+        return bmi >= 18.5 && bmi < 25.0;
     }
 }
